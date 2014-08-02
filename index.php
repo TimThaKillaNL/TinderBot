@@ -86,7 +86,6 @@
 		padding: 5px;
 		box-sizing: border-box;
 		float: left;
-		overflow
 	}
 	
 	.infoboxmatch
@@ -100,10 +99,18 @@
 		padding: 5px;
 		box-sizing: border-box;
 		float: left;
-		overflow
 	}
 
 </style>
+
+<script type='text/javascript'>
+function mouseOver(id){
+	//whatever you want
+	
+	
+}
+</script>
+
 </head>
 
 <body>
@@ -146,7 +153,10 @@
 			}
 			else
 			{
-				echo "<div class='infoboxnormal'>";
+				if(strlen($matches[$i]['bio']) > 70)
+					echo "<div class='infoboxnormal' style='overflow-y: scroll;' onMouseOver='mouseOver($i)'>";
+				else
+					echo "<div class='infoboxnormal' onMouseOver='mouseOver($i)'>";
 			}
 			
 			
@@ -165,7 +175,7 @@
 				if($messageAnswer['status'] != 500)
 				{
 					// success
-					echo "Message send.";
+					echo "Message sent.";
 				}
 			}
 		}
